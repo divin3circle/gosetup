@@ -57,7 +57,7 @@ const dockerfile: IFile = {
   name: "Dockerfile",
   content: `# Use the official Golang image as a base image
     # Build stage
-    ROM golang:1.24-alpine AS builder
+    FROM golang:1.24-alpine AS builder
 
     WORKDIR /app
 
@@ -118,8 +118,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     restart: unless-stopped
-    '
-}`,
+    `,
 };
 
 const userHandlerFile: IFile = {
