@@ -1,11 +1,30 @@
 {
   "name": "gosetup",
   "module": "src/index.tsx",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "dev": "bun run --watch src/index.tsx"
+  "version": "0.1.0",
+  "description": "TUI for scaffolding Go backend projects",
+  "author": "divin3circle",
+  "license": "MIT",
+  "homepage": "https://github.com/divin3circle/gosetup",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/divin3circle/gosetup.git"
   },
+  "bin": {
+    "gosetup": "./bin/gosetup"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.tsx",
+    "build": "bun build src/index.tsx --compile --outfile ./bin/gosetup && chmod +x ./bin/gosetup --minify",
+    "prepublishOnly": "bun run build"
+  },
+  "files": [
+    "bin",
+    "src",
+    "package.json",
+    "README.md"
+  ],
   "devDependencies": {
     "@types/bun": "latest"
   },
